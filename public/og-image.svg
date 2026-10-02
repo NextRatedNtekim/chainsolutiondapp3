@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#F5F6EF"/>
+  <rect width="1200" height="630" fill="none" stroke="#DFE0D0" stroke-width="2"/>
+  <rect x="80" y="80" width="56" height="56" rx="14" fill="#5C7D26"/>
+  <path d="M96 100h24v6h-9v18h-6v-18h-9z" fill="#ACCF4D"/>
+  <text x="80" y="230" font-family="Georgia, serif" font-size="72" fill="#1A2113">Theorem</text>
+  <text x="80" y="290" font-family="Arial, sans-serif" font-size="32" fill="#4A5340">JUPEB past questions and CBT practice for Android</text>
+  <text x="80" y="560" font-family="Arial, sans-serif" font-size="22" fill="#7C836F">Replace this file with real product artwork before launch</text>
+</svg>

@@ -6,17 +6,24 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { Menu, X } from "lucide-react";
 
 const links = [
+  { href: "/#types", label: "Complaints" },
+  { href: "/#how", label: "How it works" },
   { href: "/#about", label: "About" },
-  { href: "/#academics", label: "Academics" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/#academics", label: "Offers" },
+  { href: "/#faq", label: "FAQs" },
+  // { href: "/#contact", label: "Contact" },
 ];
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="glass site-header">
-      <Link href="/" className="brand" onClick={() => setOpen(false)}>{site.name}</Link>
+    <header className="site-header">
+      <div className="wrap header-row">
+      <Link href="/" className="brand" onClick={() => setOpen(false)}>
+        <span className="brand-mark" aria-hidden>B</span>
+        <span className="brand-name">{site.name}</span>
+      </Link>
 
       <nav className="nav" aria-label="Main">
         {links.map((l) => (
@@ -49,6 +56,7 @@ export function SiteHeader() {
           </div>
         </div>
       )}
+      </div>
     </header>
   );
 }

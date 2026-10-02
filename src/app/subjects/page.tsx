@@ -6,7 +6,7 @@ export default function SubjectsPage() {
     <main>
       <section className="wrap hero" style={{ paddingBottom: "5rem" }}>
         <p className="eyebrow">Almost done</p>
-        <h1 style={{ fontSize: "clamp(2.4rem, 7vw, 4.5rem)" }}>Your subjects</h1>
+        <h1 style={{ fontSize: "clamp(2.4rem, 7vw, 4.5rem)" }}>Your Wallet</h1>
         <Steps current={3} />
         <SubjectsForm />
       </section>
