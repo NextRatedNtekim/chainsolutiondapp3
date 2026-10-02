@@ -1,6 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { LogIn } from "lucide-react";
 
 export function AdminLoginForm() {
   const router = useRouter();
@@ -26,7 +27,7 @@ export function AdminLoginForm() {
       <label htmlFor="password">Password</label>
       <input id="password" name="password" type="password" autoComplete="current-password" required />
       {error && <p role="alert" style={{ color: "var(--accent)" }}>{error}</p>}
-      <button className="btn" disabled={loading}>{loading ? "Signing in…" : "Sign in"}</button>
+      <button className="btn" disabled={loading}><LogIn size={16} /> {loading ? "Signing in…" : "Sign in"}</button>
     </form>
   );
 }

@@ -22,7 +22,8 @@ export async function POST(req: Request) {
       httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "strict", path: "/", maxAge: SESSION_SECONDS,
     });
     return res;
-  } catch {
+  } catch (err) {
+    console.error("POST /api/admin/login failed:", err);
     return NextResponse.json({ error: "Something went wrong. Try again." }, { status: 500 });
   }
 }

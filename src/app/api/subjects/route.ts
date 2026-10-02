@@ -12,7 +12,8 @@ export async function POST(req: Request) {
   try {
     await getSql()`INSERT INTO subject_submissions (class_id, subject_count, subjects) VALUES (${classId}, ${subjects.length}, ${subjects})`;
     return NextResponse.json({ ok: true });
-  } catch {
+  } catch (err) {
+    console.error("POST /api/subjects failed:", err);
     return NextResponse.json({ error: "Something went wrong. Try again." }, { status: 500 });
   }
 }

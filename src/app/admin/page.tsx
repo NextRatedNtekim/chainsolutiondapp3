@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getSql } from "@/lib/db";
 import { requireAdmin } from "@/lib/session";
 import { site } from "@/config/site";
+import { LogOut, MessageSquareText, NotebookText } from "lucide-react";
 
 type Complaint = { id: string; body: string; created_at: string };
 type Submission = { id: string; class_id: string; subjects: string[]; created_at: string };
@@ -19,9 +20,9 @@ export default async function Dashboard({ searchParams }: { searchParams: Promis
       <section className="wrap">
         <h1>Submissions</h1>
         <div style={{ display: "flex", gap: ".75rem", marginBottom: "1.5rem", flexWrap: "wrap" }}>
-          <Link href="/admin?tab=complaints" className={tab === "complaints" ? "btn" : "btn ghost"}>Complaints</Link>
-          <Link href="/admin?tab=subjects" className={tab === "subjects" ? "btn" : "btn ghost"}>Subjects</Link>
-          <form action="/api/admin/logout" method="post"><button className="btn ghost">Sign out</button></form>
+          <Link href="/admin?tab=complaints" className={tab === "complaints" ? "btn" : "btn ghost"}><MessageSquareText size={16} /> Complaints</Link>
+          <Link href="/admin?tab=subjects" className={tab === "subjects" ? "btn" : "btn ghost"}><NotebookText size={16} /> Subjects</Link>
+          <form action="/api/admin/logout" method="post"><button className="btn ghost"><LogOut size={16} /> Sign out</button></form>
         </div>
         <div className="stack">
           {tab === "complaints" && (complaints.length === 0 ? <p>No complaints yet.</p> : complaints.map((c) => (

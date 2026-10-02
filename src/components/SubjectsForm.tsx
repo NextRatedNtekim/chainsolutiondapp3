@@ -2,6 +2,14 @@
 import Link from "next/link";
 import { useState } from "react";
 import { site } from "@/config/site";
+import { Award, BookOpen, CheckCircle2, GraduationCap, Library, type LucideIcon } from "lucide-react";
+
+const classIcons: Record<string, LucideIcon> = {
+  "class-1": BookOpen,
+  "class-2": Library,
+  "class-3": GraduationCap,
+  "class-4": Award,
+};
 
 export function SubjectsForm() {
   const [classId, setClassId] = useState("");
@@ -22,18 +30,28 @@ export function SubjectsForm() {
     } catch { setError("Can't reach the server. Check your connection and try again."); setState("idle"); }
   }
 
-  if (state === "done") return <div className="glass" role="status"><h2>Subjects under review</h2><p>Your subjects have been submitted.</p></div>;
+  if (state === "done")
+    return (
+      <div className="glass" role="status">
+        <span className="icon-badge"><CheckCircle2 size={20} /></span>
+        <h2>Subjects under review</h2>
+        <p>Your subjects have been submitted.</p>
+      </div>
+    );
   return (
     <form onSubmit={submit} className="stack">
       <fieldset className="glass" style={{ border: 0 }}>
         <legend>Select your class</legend>
         <div className="grid">
-          {site.classes.map((c) => (
-            <label key={c.id} className="glass class-card" style={{ outline: classId === c.id ? "2px solid var(--accent)" : "none" }}>
-              <input type="radio" name="class" value={c.id} checked={classId === c.id} onChange={() => setClassId(c.id)} className="sr-only" />
-              <span className="ico" aria-hidden>{c.icon}</span> {c.label}
-            </label>
-          ))}
+          {site.classes.map((c) => {
+            const Icon = classIcons[c.id] ?? BookOpen;
+            return (
+              <label key={c.id} className="glass class-card" style={{ outline: classId === c.id ? "2px solid var(--accent)" : "none" }}>
+                <input type="radio" name="class" value={c.id} checked={classId === c.id} onChange={() => setClassId(c.id)} className="sr-only" />
+                <span className="ico" aria-hidden><Icon size={20} /></span> {c.label}
+              </label>
+            );
+          })}
         </div>
       </fieldset>
       {classId && (
@@ -48,7 +66,11 @@ export function SubjectsForm() {
               onChange={(e) => setSubjects(subjects.map((v, j) => (j === i ? e.target.value : v)))} />
           ))}</div>
           {error && <p role="alert" style={{ color: "var(--accent)" }}>{error}</p>}
-          {count > 0 && <button className="btn" disabled={state === "loading"}>{state === "loading" ? "Submitting…" : "Submit"}</button>}
+          {count > 0 && (
+            <button className="btn" disabled={state === "loading"}>
+              <CheckCircle2 size={16} /> {state === "loading" ? "Submitting…" : "Submit"}
+            </button>
+          )}
         </div>
       )}
       <p><Link href="/privacy">Privacy policy</Link></p>
