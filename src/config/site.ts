@@ -1,0 +1,36 @@
+// All school-specific content lives here. Replace each placeholder with real text later.
+export const site = {
+  name: "[SCHOOL NAME]",
+  logo: "[SCHOOL LOGO]",
+  description: "[SCHOOL DESCRIPTION]",
+  history: "[SCHOOL HISTORY PLACEHOLDER]",
+  mission: "[SCHOOL MISSION]",
+  vision: "[SCHOOL VISION]",
+  academics: "[ACADEMIC PROGRAMS]",
+  features: ["[SCHOOL FEATURE 1]", "[SCHOOL FEATURE 2]", "[SCHOOL FEATURE 3]"],
+  support: "[CUSTOMER-SERVICE / STUDENT-SUPPORT INFORMATION]",
+  extra: "[ADDITIONAL SCHOOL INFORMATION]",
+  contact: { address: "[SCHOOL ADDRESS]", phone: "[SCHOOL PHONE]", email: "[SCHOOL EMAIL]" },
+  care: {
+    title: "[CUSTOMER CARE TITLE]",
+    intro: "[EXPLANATION OF THE STUDENT SUPPORT SERVICE]",
+  },
+  classes: [
+    { id: "class-1", label: "[CLASS 1]", icon: "●" }, { id: "class-2", label: "[CLASS 2]", icon: "■" },
+    { id: "class-3", label: "[CLASS 3]", icon: "▲" }, { id: "class-4", label: "[CLASS 4]", icon: "◆" },
+  ],
+  subjectCounts: [12, 15, 18, 21, 24],
+  privacy: [
+    { title: "What information is collected", body: "[PRIVACY POLICY CONTENT: INFORMATION COLLECTED]" },
+    { title: "Why it is collected", body: "[PRIVACY POLICY CONTENT: PURPOSE]" },
+    { title: "How verification information is used", body: "[PRIVACY POLICY CONTENT: USE OF VERIFICATION INFORMATION]" },
+    { title: "Where it is stored", body: "[PRIVACY POLICY CONTENT: STORAGE IN THE SCHOOL BACKEND/DATABASE]" },
+    { title: "How it is protected", body: "[PRIVACY POLICY CONTENT: PROTECTION MEASURES]" },
+    { title: "Who can access it", body: "[AUTHORIZED DATA ACCESS INFORMATION]" },
+    { title: "How long it is kept", body: "[DATA RETENTION POLICY]" },
+    { title: "Third-party sharing", body: "[PRIVACY POLICY CONTENT: THIRD-PARTY SHARING]" },
+    { title: "Your rights", body: "[PRIVACY POLICY CONTENT: USER RIGHTS]" },
+    { title: "Privacy questions", body: "[DATA PROTECTION CONTACT]" },
+  ],
+  appVerify: { unavailable: "Feature unavailable for now", loadingSeconds: 10 },
+} as const;
