@@ -12,7 +12,7 @@ export function validateComplaint(input: unknown): Result<string> {
 export function validateSubjects(input: unknown): Result<{ classId: string; subjects: string[] }> {
   const { classId, subjects } = (input ?? {}) as { classId?: unknown; subjects?: unknown };
   if (typeof classId !== "string" || !site.classes.some((c) => c.id === classId))
-    return { ok: false, error: "Select a class." };
+    return { ok: false, error: "input correct details" };
   const counts: readonly number[] = site.subjectCounts;
   if (!Array.isArray(subjects) || !counts.includes(subjects.length))
     return { ok: false, error: "Choose how many subjects you offer." };

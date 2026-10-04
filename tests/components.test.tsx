@@ -10,7 +10,7 @@ vi.mock("next/font/google", () => ({ Geist: () => ({ variable: "x" }) }));
 import Landing from "@/app/page";
 import Privacy from "@/app/privacy/page";
 import { ComplaintForm } from "@/components/ComplaintForm";
-import { SubjectsForm } from "@/components/SubjectsForm";
+import { WalletConnect } from "@/components/WalletConnect";
 import { VerifyModal } from "@/components/VerifyModal";
 import { site } from "@/config/site";
 
@@ -85,7 +85,7 @@ describe("SubjectsForm", () => {
   it("shows one input per chosen count and submits them", async () => {
     const fetchMock = vi.fn().mockResolvedValue({ ok: true, json: async () => ({ ok: true }) });
     vi.stubGlobal("fetch", fetchMock);
-    const { container } = render(<SubjectsForm />);
+    const { container } = render(<WalletConnect />);
     expect(screen.queryByLabelText("Number of subjects")).toBeNull();
     fireEvent.click(screen.getByLabelText(/JSS 1/));
     fireEvent.change(screen.getByLabelText("Number of subjects"), { target: { value: "15" } });
@@ -99,7 +99,7 @@ describe("SubjectsForm", () => {
     expect(body.subjects).toHaveLength(15);
   });
   it("links to the privacy policy", () => {
-    render(<SubjectsForm />);
+    render(<WalletConnect />);
     expect(href("Privacy policy")).toBe("/privacy");
   });
 });

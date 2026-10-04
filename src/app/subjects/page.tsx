@@ -1,4 +1,4 @@
-import { WalletConnect } from "@/components/SubjectsForm";
+import { WalletConnect } from "@/components/WalletConnect";
 import { Steps } from "@/components/Steps";
 
 

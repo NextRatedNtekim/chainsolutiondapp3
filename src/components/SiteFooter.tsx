@@ -8,15 +8,13 @@ export function SiteFooter() {
       <div className="wrap footer-grid">
         <div>
           <p className="brand-mini">
-            <span className="brand-mark" aria-hidden>B</span> {site.name}
+            <span className="brand-mark" aria-hidden>C</span> {site.name}
           </p>
           <p className="footer-blurb">{site.description}</p>
         </div>
         <nav aria-label="Footer" className="footer-links">
-          <Link href="/verify">Get started</Link>
-          <Link href="/#types">Complaint types</Link>
-          <Link href="/#how">How it works</Link>
-          <Link href="/#faq">FAQs</Link>
+          <Link href="/explore">Get started</Link>
+          <Link href="/#services">Services</Link>
           <Link href="/privacy">Privacy policy</Link>
         </nav>
         {/* <div className="footer-contact">

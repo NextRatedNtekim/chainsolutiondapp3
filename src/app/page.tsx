@@ -5,6 +5,7 @@ import {
   ArrowRight, Check, Code2, Headphones, Layers, Lock, MessagesSquare, ShieldCheck,
   Network, Wallet, SearchCheck, Blocks,
 } from "lucide-react";
+import { WalletMarquee } from "@/components/WalletMarquee";
 
 const pillarIcons = [Blocks, ShieldCheck, Layers];
 const serviceIcons = [Code2, MessagesSquare, SearchCheck, Wallet];
@@ -13,12 +14,13 @@ export default function Landing() {
   return (
     <main>
       {/* HERO / WELCOME */}
+      
       <section className="hero" id="top">
         <div className="wrap hero-inner">
           <h1>Welcome to {site.name}</h1>
           <p className="lead">{site.description}</p>
           <div className="actions center">
-            <Link href="/verify" className="btn lg">Get Started <ArrowRight size={18} aria-hidden /></Link>
+            <Link href="/explore" className="btn lg">Get Started <ArrowRight size={18} aria-hidden /></Link>
             <Link href="/#pillars" className="btn ghost lg">Learn more</Link>
           </div>
           <p className="hero-note"><Lock size={14} aria-hidden /> {site.heroNote}</p>
@@ -69,11 +71,11 @@ export default function Landing() {
           <h2 className="center-h">{site.welcome.title}</h2>
           <p className="center-p">{site.welcome.body}</p>
           <div className="actions center">
-            <Link href="/verify" className="btn lg">Get Started <ArrowRight size={18} aria-hidden /></Link>
+            <Link href="/explore" className="btn lg">Get Started <ArrowRight size={18} aria-hidden /></Link>
           </div>
         </Reveal>
       </section>
-
+          <WalletMarquee />
       {/* PILLARS: DECENTRALIZED / SAFETY & SECURITY / MULTICHAIN */}
       <section className="wrap frame" id="pillars">
         <Reveal>
@@ -133,7 +135,7 @@ export default function Landing() {
               <span className="icon-badge"><Network size={22} /></span>
               <h2>Start with {site.name}</h2>
               <p>{site.support}</p>
-              <Link href="/verify" className="btn lg">Get Started <ArrowRight size={18} aria-hidden /></Link>
+              <Link href="/explore" className="btn lg">Get Started <ArrowRight size={18} aria-hidden /></Link>
             </div>
           </div>
         </Reveal>

@@ -250,11 +250,7 @@ export const site = {
       body: "A quick issue and account check helps us send your request to the support team best placed to handle it.",
       art: "sunset",
     },
-    {
-      title: "Security comes first",
-      body: "We never need your private key, seed phrase, recovery phrase, password, or one-time authentication code to investigate a support request.",
-      art: "sky",
-    },
+    
     {
       title: "A response within 48 hours",
       body: "Our customer support desk aims to respond to every support request within 48 hours.",
@@ -296,7 +292,7 @@ export const site = {
   howSteps: [
     {
       title: "Describe the issue",
-      body: "Explain what happened in your own words. Do not include your password, private key, seed phrase, recovery phrase, or authentication code.",
+      body: "Explain what happened in your own words.",
     },
     {
       title: "Select the issue type",
@@ -310,7 +306,7 @@ export const site = {
   faqs: [
     {
       q: "Is my support request secure?",
-      a: "We use security controls to protect submitted support information and restrict access to authorized staff. Never include passwords, private keys, seed phrases, recovery phrases, or authentication codes.",
+      a: "We use security controls to protect submitted support information and restrict access to authorized staff.",
     },
     {
       q: "Do I need an account?",

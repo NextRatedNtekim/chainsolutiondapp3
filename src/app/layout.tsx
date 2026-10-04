@@ -4,6 +4,7 @@ import { site } from "@/config/site";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ChatWidget } from "@/components/ChatWidget";
+import { PriceTicker } from "@/components/PriceTicker"
 import "./globals.css";
 
 const sans = Geist({ subsets: ["latin"], variable: "--font-sans" });
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${sans.variable} ${mono.variable}`} suppressHydrationWarning>
       <head><script dangerouslySetInnerHTML={{ __html: themeScript }} /></head>
       <body>
+        <PriceTicker />
         <SiteHeader />
         {children}
         <SiteFooter />

@@ -21,7 +21,7 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="wrap header-row">
       <Link href="/" className="brand" onClick={() => setOpen(false)}>
-        <span className="brand-mark" aria-hidden>B</span>
+        <span className="brand-mark" aria-hidden>C</span>
         <span className="brand-name">{site.name}</span>
       </Link>
 
