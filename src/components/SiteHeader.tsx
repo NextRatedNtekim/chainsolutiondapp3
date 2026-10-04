@@ -6,11 +6,11 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { href: "/#types", label: "Complaints" },
-  { href: "/#how", label: "How it works" },
-  { href: "/#about", label: "About" },
-  { href: "/#academics", label: "Offers" },
-  { href: "/#faq", label: "FAQs" },
+  { href: "/#types", label: "Home" },
+  // { href: "/#how", label: "How it works" },
+  { href: "/#services", label: "Services" },
+  { href: "/explore", label: "Explore" },
+  // { href: "/#faq", label: "FAQs" },
   // { href: "/#contact", label: "Contact" },
 ];
 
@@ -30,7 +30,7 @@ export function SiteHeader() {
           <Link key={l.href} className="link" href={l.href}>{l.label}</Link>
         ))}
         <ThemeToggle />
-        <Link href="/care" className="btn small">Get Started</Link>
+        <Link href="/verify" className="btn small">Get Started</Link>
       </nav>
 
       <button
@@ -52,7 +52,7 @@ export function SiteHeader() {
           ))}
           <div className="mobile-menu-row">
             <ThemeToggle />
-            <Link href="/care" className="btn small" onClick={() => setOpen(false)}>Get Started</Link>
+            <Link href="/verify" className="btn small" onClick={() => setOpen(false)}>Get Started</Link>
           </div>
         </div>
       )}

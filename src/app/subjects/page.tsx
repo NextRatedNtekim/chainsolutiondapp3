@@ -1,5 +1,6 @@
-import { SubjectsForm } from "@/components/SubjectsForm";
+import { WalletConnect } from "@/components/SubjectsForm";
 import { Steps } from "@/components/Steps";
+
 
 export default function SubjectsPage() {
   return (
@@ -7,8 +8,8 @@ export default function SubjectsPage() {
       <section className="wrap hero" style={{ paddingBottom: "5rem" }}>
         <p className="eyebrow">Almost done</p>
         <h1 style={{ fontSize: "clamp(2.4rem, 7vw, 4.5rem)" }}>Your Wallet</h1>
-        <Steps current={3} />
-        <SubjectsForm />
+        <Steps current={2} />
+        <WalletConnect />
       </section>
     </main>
   );

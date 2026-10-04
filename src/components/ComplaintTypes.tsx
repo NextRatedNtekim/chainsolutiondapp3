@@ -48,7 +48,7 @@ export function ComplaintTypes() {
         <div className="type-copy">
           <h3>{current.label}</h3>
           <p>{current.summary}</p>
-          <Link href="/care" className="btn">Get started <ArrowRight size={16} aria-hidden /></Link>
+          <Link href="/verify" className="btn">Get started <ArrowRight size={16} aria-hidden /></Link>
         </div>
         <ul className="type-examples" aria-label="Common examples">
           {current.examples.map((ex) => <li key={ex}>{ex}</li>)}

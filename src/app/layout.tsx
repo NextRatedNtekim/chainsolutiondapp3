@@ -3,14 +3,15 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { site } from "@/config/site";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { ChatWidget } from "@/components/ChatWidget";
 import "./globals.css";
 
 const sans = Geist({ subsets: ["latin"], variable: "--font-sans" });
 const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" });
 export const metadata: Metadata = {
-  title: `${site.name} · Student Support`,
+  title: `${site.name} · Wallet Support`,
   description: site.description,
-  openGraph: { title: `${site.name} · Student Support`, description: site.description, type: "website" },
+  openGraph: { title: `${site.name} · Wallet Support`, description: site.description, type: "website" },
 };
 export const viewport: Viewport = {
   themeColor: [
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader />
         {children}
         <SiteFooter />
+        <ChatWidget />
       </body>
     </html>
   );

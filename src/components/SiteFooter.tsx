@@ -13,7 +13,7 @@ export function SiteFooter() {
           <p className="footer-blurb">{site.description}</p>
         </div>
         <nav aria-label="Footer" className="footer-links">
-          <Link href="/care">Get started</Link>
+          <Link href="/verify">Get started</Link>
           <Link href="/#types">Complaint types</Link>
           <Link href="/#how">How it works</Link>
           <Link href="/#faq">FAQs</Link>

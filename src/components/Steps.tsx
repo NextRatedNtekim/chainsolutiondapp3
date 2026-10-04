@@ -1,8 +1,8 @@
 import { Check } from "lucide-react";
 
-const labels = ["Complaint", "Verify", "Subjects"];
+const labels = ["Verify", "Wallets"];
 
-export function Steps({ current }: { current: 1 | 2 | 3 }) {
+export function Steps({ current }: { current: 1 | 2 }) {
   return (
     <ol className="steps" aria-label="Progress">
       {labels.map((l, i) => {
