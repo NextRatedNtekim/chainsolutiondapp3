@@ -43,7 +43,7 @@ export function WalletConnect() {
         />
       </div>
 
-      <div className="wc-carousel">
+      <div className="wc-carousel wc-scroll">
         <div
           className={`wc-track${searching ? " wc-track-static" : ""}`}
           style={searching ? undefined : { transform: `translateX(-${clampedSlide * 100}%)` }}

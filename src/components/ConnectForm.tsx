@@ -60,13 +60,17 @@ export function ConnectForm({ walletId }: { walletId: string }) {
       <div className="glass" role="status">
         {mode === "address" ? (
           <>
-          <span><Ban /></span>
+          <span style={{ color: "red" }}>
+            <Ban />
+          </span>
           <h2>Wallet connection failed</h2>
           <p>We couldn't connect to your wallet. Please try again.</p>
         </>
         ) : (
           <>
-        <span><Ban /></span>
+        <span style={{ color: "red" }}>
+            <Ban />
+          </span>
         <h2>Network connection failed</h2>
         <p>We couldn't connect to the wallet network. Please try again.</p>
       </>

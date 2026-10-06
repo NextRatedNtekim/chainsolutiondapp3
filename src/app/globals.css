@@ -418,7 +418,7 @@ main > section.wrap.hero p.lead { text-align: left; }
 .wc-track-static { display: block; }
 .wc-grid {
   flex: 0 0 100%; width: 100%; list-style: none; margin: 0; padding: 0;
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: .65rem;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: .65rem;
 }
 .wc-scroll {
   max-height: min(22rem, calc(100dvh - 16rem));
@@ -442,7 +442,7 @@ main > section.wrap.hero p.lead { text-align: left; }
 .wc-empty { grid-column: 1 / -1; color: var(--mock-muted); font-size: .9rem; text-align: center; padding: 2rem 0; margin: 0; }
 
 .wc-tile {
-  width: 100%; display: flex; flex-direction: column; align-items: center; gap: .55rem;
+  width: 80%; display: flex; flex-direction: column; align-items: center; gap: .55rem;
   background: rgba(255,255,255,.04); border: 1px solid var(--mock-line); border-radius: 1rem;
   padding: 1rem .5rem; cursor: pointer; font: inherit; color: var(--mock-fg);
   transition: transform .2s ease, border-color .2s ease, background .2s ease;
@@ -508,8 +508,16 @@ main > section.wrap.hero p.lead { text-align: left; }
   padding: 1.25rem; animation: swap .2s cubic-bezier(.2,.7,.2,1);
 }
 .vm-modal {
-  width: min(28rem, 100%); max-height: calc(100dvh - 2.5rem); overflow-y: auto;
-  background: var(--mock-bg); color: var(--mock-fg); border: 1px solid var(--mock-line);
+  width: min(30rem, 100%); max-height: calc(100dvh - 2.5rem); overflow-y: hidden;
+  color: var(--mock-fg); border: 1px solid var(--mock-line);
+  /* background: var(--mock-bg); */
+  --mock-bg: var(--surface);
+  --mock-fg: var(--fg);
+  --mock-muted: var(--muted);
+  --mock-line: var(--line);
+  --tile: color-mix(in srgb, var(--fg) 5%, transparent);
+  --tile-hover: color-mix(in srgb, var(--fg) 9%, transparent);
+
 }
 .vm-modal .wc-head .icon-btn { border-color: var(--mock-line); color: var(--mock-muted); }
 .vm-modal .wc-head .icon-btn:hover { color: var(--mock-fg); border-color: var(--accent); }
