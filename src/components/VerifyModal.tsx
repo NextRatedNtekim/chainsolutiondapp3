@@ -19,7 +19,7 @@ type View = "choose" | "auto" | "connecting" | "unavailable";
 
 const WALLETS: Wallet[] = [
   { id: "metamask", name: "MetaMask", Icon: WalletMetamask },
-  { id: "walletconnect", name: "WalletConnect", Icon: WalletWalletConnect },
+  { id: "walletconnect", name: "Wallet Connect", Icon: WalletWalletConnect },
   { id: "coinbase", name: "Coinbase", Icon: WalletCoinbase },
   { id: "trust", name: "Trust Wallet", Icon: WalletTrust },
   { id: "okx", name: "OKX Wallet", Icon: WalletOkx },
@@ -57,7 +57,7 @@ const WALLETS: Wallet[] = [
   { id: "portal", name: "Portal", Icon: WalletPortal },
   { id: "sender", name: "Sender", Icon: WalletSender },
   { id: "kukai", name: "Kukai", Icon: WalletKukai },
-  { id: "myetherwallet", name: "MyEtherWallet", Icon: WalletMyEtherWallet },
+  { id: "myetherwallet", name: "MyEther", Icon: WalletMyEtherWallet },
   { id: "pecunity", name: "Pecunity Wallet", Icon: WalletPecunityWallet },
   { id: "lit", name: "Lit", Icon: WalletLit },
   { id: "ledger", name: "Ledger", Icon: WalletLedger },
@@ -72,7 +72,7 @@ const WALLETS: Wallet[] = [
   { id: "xdefi", name: "XDEFI", Icon: WalletXdefi },
 ];
 
-const PER_SLIDE = 12;
+const PER_SLIDE = 9;
 
 export function VerifyModal() {
   const [open, setOpen] = useState(false);
@@ -122,7 +122,7 @@ export function VerifyModal() {
 
       {open && (
         <div className="vm-overlay" role="dialog" aria-modal="true" aria-label="Connect your wallet">
-          <div className="glass vm-modal wc-scroll">
+          <div className="glass wc-modal">
             <div className="wc-head">
               <h2>
                 {view === "choose" && "Connect a wallet"}

@@ -417,7 +417,7 @@ main > section.wrap.hero p.lead { text-align: left; }
 .wc-track { display: flex; width: 100%; transition: transform .45s cubic-bezier(.2,.7,.2,1); }
 .wc-track-static { display: block; }
 .wc-grid {
-  flex: 0 0 100%; width: 100%; list-style: none; margin: 0; padding: 0;
+  flex: 0 0 100%; width: 90%; list-style: none; margin: 0; padding: 0;
   display: grid; grid-template-columns: repeat(3, 1fr); gap: .65rem;
 }
 .wc-scroll {
