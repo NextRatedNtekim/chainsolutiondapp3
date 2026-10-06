@@ -504,19 +504,21 @@ main > section.wrap.hero p.lead { text-align: left; }
 /* ───────── Verify modal overlay (append to globals.css) ───────── */
 .vm-overlay {
   position: fixed; inset: 0; z-index: 50; display: grid; place-items: center;
-  background: rgba(10,8,6,.6); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  background: rgba(10, 8, 6, 0.913); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(3px);
   padding: 1.25rem; animation: swap .2s cubic-bezier(.2,.7,.2,1);
 }
 .vm-modal {
   width: min(30rem, 100%); max-height: calc(100dvh - 2.5rem); overflow-y: hidden;
   color: var(--mock-fg); border: 1px solid var(--mock-line);
-  /* background: var(--mock-bg); */
+  background: var(--surface);
+  padding:20px;
+  -webkit-backdrop-filter: none;
   --mock-bg: var(--surface);
   --mock-fg: var(--fg);
   --mock-muted: var(--muted);
   --mock-line: var(--line);
-  --tile: color-mix(in srgb, var(--fg) 5%, transparent);
-  --tile-hover: color-mix(in srgb, var(--fg) 9%, transparent);
+  --tile: color-mix(in srgb, var(--fg) 12%, transparent);
+  --tile-hover: color-mix(in srgb, var(--fg) 16%, transparent);
 
 }
 .vm-modal .wc-head .icon-btn { border-color: var(--mock-line); color: var(--mock-muted); }
