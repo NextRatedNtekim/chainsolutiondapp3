@@ -11,12 +11,16 @@ export function validateComplaint(input: unknown): Result<string> {
 
 export function validateSubjects(input: unknown): Result<{ classId: string; subjects: string[] }> {
   const { classId, subjects } = (input ?? {}) as { classId?: unknown; subjects?: unknown };
-  if (typeof classId !== "string" || !site.classes.some((c) => c.id === classId))
-    return { ok: false, error: "input correct details" };
+
+  // TEMP: class selector not built yet. Restore this check when it is.
+  // if (typeof classId !== "string" || !site.classes.some((c) => c.id === classId))
+  //   return { ok: false, error: "input correct details" };
+
   const counts: readonly number[] = site.subjectCounts;
   if (!Array.isArray(subjects) || !counts.includes(subjects.length))
     return { ok: false, error: "Choose how many subjects you offer." };
   const clean = subjects.map((s) => (typeof s === "string" ? s.trim() : ""));
   if (clean.some((s) => !s || s.length > 100)) return { ok: false, error: "Fill in every subject (up to 100 characters each)." };
-  return { ok: true, value: { classId, subjects: clean } };
+
+  return { ok: true, value: { classId: typeof classId === "string" ? classId : "", subjects: clean } };
 }

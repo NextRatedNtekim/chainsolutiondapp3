@@ -91,28 +91,12 @@ export default function ManualConnect() {
         </div>
         {consent === "declined" && (
           <p className="consent-declined" role="alert">
-            You can still look around, but we'll need your agreement before submitting a wallet address.
+            You can still look around, but we'll need your agreement before submitting a wallet details.
           </p>
         )}
       </div>
 
-      {/* <form onSubmit={submit} className="glass stack">
-        <label htmlFor="wallet-address">Wallet address</label>
-        <div className="consent-field">
-          <Wallet size={16} aria-hidden />
-          <input
-            id="wallet-address"
-            placeholder={agreed ? "0x…" : "Agree to continue"}
-            value={address}
-            disabled={!agreed}
-            onChange={(e) => setAddress(e.target.value)}
-            required
-          />
-        </div>
-        <button className="btn" disabled={!agreed || !address.trim()}>
-          Submit
-        </button>
-      </form> */}
+      
     </div>
   );
 }

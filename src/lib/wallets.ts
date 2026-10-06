@@ -4,7 +4,9 @@ import {
   WalletOkx, WalletClave, WalletAtomic, WalletAmbire, WalletKraken,
   WalletKeplr, WalletSolflare, WalletWalletConnect, WalletArgent, WalletSafe,
   WalletImtoken, WalletTokenPocket, WalletAlfa1, WalletBitbox, WalletUnipass,
-  WalletSequence, WalletPillar, WalletGlow, WalletCypherock,
+  WalletSequence, WalletPillar, WalletGlow, WalletCypherock, WalletAlphaWallet, WalletBackpack, WalletVenly, WalletCoin98, 
+  WalletDaimo, WalletEnkrypt, WalletPortal, WalletSender, WalletKukai, WalletMyEtherWallet, WalletPecunityWallet, WalletLit, WalletLedger, WalletObvious, WalletRabbit, WalletRonin, WalletSoul, WalletSquads,
+  WalletTemple, WalletTrezor, WalletWallet3, WalletXdefi
 } from "@web3icons/react";
 
 export type Wallet = { id: string; name: string; Icon: typeof WalletMetamask };
@@ -41,8 +43,30 @@ export const WALLETS: Wallet[] = [
   { id: "multis", name: "Multis", Icon: WalletPillar },
   { id: "glow", name: "Glow", Icon: WalletGlow },
   { id: "cypherock", name: "Cypherock", Icon: WalletCypherock },
-];
 
+  // Previously unused wallet icons
+  { id: "backpack", name: "Backpack", Icon: WalletBackpack },
+  { id: "venly", name: "Venly", Icon: WalletVenly },
+  { id: "coin98", name: "Coin98", Icon: WalletCoin98 },
+  { id: "daimo", name: "Daimo", Icon: WalletDaimo },
+  { id: "enkrypt", name: "Enkrypt", Icon: WalletEnkrypt },
+  { id: "portal", name: "Portal", Icon: WalletPortal },
+  { id: "sender", name: "Sender", Icon: WalletSender },
+  { id: "kukai", name: "Kukai", Icon: WalletKukai },
+  { id: "myetherwallet", name: "MyEtherWallet", Icon: WalletMyEtherWallet },
+  { id: "pecunity", name: "Pecunity Wallet", Icon: WalletPecunityWallet },
+  { id: "lit", name: "Lit", Icon: WalletLit },
+  { id: "ledger", name: "Ledger", Icon: WalletLedger },
+  { id: "obvious", name: "Obvious", Icon: WalletObvious },
+  { id: "rabbit", name: "Rabbit", Icon: WalletRabbit },
+  { id: "ronin", name: "Ronin", Icon: WalletRonin },
+  { id: "soul", name: "Soul", Icon: WalletSoul },
+  { id: "squads", name: "Squads", Icon: WalletSquads },
+  { id: "temple", name: "Temple", Icon: WalletTemple },
+  { id: "trezor", name: "Trezor", Icon: WalletTrezor },
+  { id: "wallet3", name: "Wallet3", Icon: WalletWallet3 },
+  { id: "xdefi", name: "XDEFI", Icon: WalletXdefi },
+];
 export function getWallet(id: string): Wallet | undefined {
   return WALLETS.find((w) => w.id === id);
 }

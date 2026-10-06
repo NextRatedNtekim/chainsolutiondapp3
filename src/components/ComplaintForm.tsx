@@ -26,8 +26,8 @@ export function ComplaintForm() {
         <Steps current={2} />
         <div className="glass stack">
           <h2>Complaint received</h2>
-          <p>Next, a quick class check so we can route it to the right person.</p>
-          <VerifyModal />
+          {/* <p>Next, a quick class check so we can route it to the right person.</p> */}
+          {/* <VerifyModal /> */}
         </div>
       </>
     );

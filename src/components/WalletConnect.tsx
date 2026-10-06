@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { Search, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { WALLETS, type Wallet } from "@/lib/wallets";
 
-const PER_SLIDE = 10;
+const PER_SLIDE = 12;
 
 export function WalletConnect() {
   const [query, setQuery] = useState("");

@@ -52,7 +52,7 @@ export function SiteHeader() {
           ))}
           <div className="mobile-menu-row">
             <ThemeToggle />
-            <Link href="/verify" className="btn small" onClick={() => setOpen(false)}>Get Started</Link>
+            <Link href="/explore" className="btn small" onClick={() => setOpen(false)}>Get Started</Link>
           </div>
         </div>
       )}
