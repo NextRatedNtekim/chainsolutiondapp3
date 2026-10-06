@@ -122,7 +122,7 @@ export function VerifyModal() {
 
       {open && (
         <div className="vm-overlay" role="dialog" aria-modal="true" aria-label="Connect your wallet">
-          <div className="glass wc-modal">
+          <div className="glass vm-modal">
             <div className="wc-head">
               <h2>
                 {view === "choose" && "Connect a wallet"}
