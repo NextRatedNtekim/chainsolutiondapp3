@@ -1,5 +1,5 @@
 {
-  "name": "school-support",
+  "name": "chainsolutiondapp",
   "private": true,
   "scripts": {
     "dev": "next dev",
