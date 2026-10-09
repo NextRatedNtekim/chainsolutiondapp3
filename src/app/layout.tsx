@@ -10,7 +10,7 @@ import "./globals.css";
 const sans = Geist({ subsets: ["latin"], variable: "--font-sans" });
 const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" });
 export const metadata: Metadata = {
-  title: `${site.name} · `,
+  title: `${site.name}`,
   description: site.description,
   openGraph: { title: `${site.name} DApp`, description: "Discover ChainSolution — your gateway to the decentralized future. Explore innovative blockchain solutions, seamless crypto experiences, and the next generation of Web3 technology.", type: "website" },
 };
