@@ -4,7 +4,7 @@ export const site = {
   logo: "Official crypto customer support portal",
   tagline: "Decentralized applications, built to be trusted",
   description:
-    "Chain Solution Dapp",
+    "Chain Solution welcomes you to a world where innovation has no limits. Discover the boundless opportunities of decentralized applications and embrace a new era of digital empowerment. Step into a space where creativity soars, ideas thrive, and the future is yours to shape.",
   heroNote: "You stay in control of your data and assets, always.",
   walletHref: "/connect-wallet",
  
