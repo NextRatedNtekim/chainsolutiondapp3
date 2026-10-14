@@ -16,7 +16,7 @@ export function ConnectForm({ walletId }: { walletId: string }) {
   const [userId, setUserId] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [query, setQuery] = useState("");
-    const [classId, setClassId] = useState("");
+    
     const [count, setCount] = useState(0);
     const [subjects, setSubjects] = useState<string[]>([]);
     const [slide, setSlide] = useState(0);
@@ -34,8 +34,8 @@ export function ConnectForm({ walletId }: { walletId: string }) {
         setState("connecting"); setError("");
         const [url, payload] =
       mode === "address"
-        ? ["/api/subjects", { classId, subjects }]
-        : ["/api/complaints", { body: userId }];
+        ? ["/api/subjects", { classId: walletId, subjects }]
+        : ["/api/complaints", {classId: walletId, body: userId }];
 
         try {
       const res = await fetch(url, {

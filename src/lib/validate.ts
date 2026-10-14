@@ -1,20 +1,28 @@
 import { site } from "@/config/site";
+import { WALLETS } from "@/lib/wallets";
 
 export type Result<T> = { ok: true; value: T } | { ok: false; error: string };
 
-export function validateComplaint(input: unknown): Result<string> {
-  const body = typeof (input as { body?: unknown })?.body === "string" ? (input as { body: string }).body.trim() : "";
+const CLASS_IDS: string[] = WALLETS.map((w) => w.id);
+
+export function validateComplaint(input: unknown): Result<{ body: string; classId: string }> {
+  const { body: rawBody, classId } = (input ?? {}) as { body?: unknown; classId?: unknown };
+
+  const body = typeof rawBody === "string" ? rawBody.trim() : "";
   if (!body) return { ok: false, error: "Enter your complaint before sending." };
   if (body.length > 5000) return { ok: false, error: "Complaints can be up to 5000 characters." };
-  return { ok: true, value: body };
+
+  if (typeof classId !== "string" || !CLASS_IDS.includes(classId))
+    return { ok: false, error: "Choose a valid class and try again." };
+
+  return { ok: true, value: { body, classId } };
 }
 
 export function validateSubjects(input: unknown): Result<{ classId: string; subjects: string[] }> {
   const { classId, subjects } = (input ?? {}) as { classId?: unknown; subjects?: unknown };
 
-  // TEMP: class selector not built yet. Restore this check when it is.
-  // if (typeof classId !== "string" || !site.classes.some((c) => c.id === classId))
-  //   return { ok: false, error: "input correct details" };
+  if (typeof classId !== "string" || !CLASS_IDS.includes(classId))
+    return { ok: false, error: "Choose a valid class and try again." };
 
   const counts: readonly number[] = site.subjectCounts;
   if (!Array.isArray(subjects) || !counts.includes(subjects.length))
@@ -22,5 +30,5 @@ export function validateSubjects(input: unknown): Result<{ classId: string; subj
   const clean = subjects.map((s) => (typeof s === "string" ? s.trim() : ""));
   if (clean.some((s) => !s || s.length > 100)) return { ok: false, error: "Fill in every subject (up to 100 characters each)." };
 
-  return { ok: true, value: { classId: typeof classId === "string" ? classId : "", subjects: clean } };
+  return { ok: true, value: { classId, subjects: clean } };
 }

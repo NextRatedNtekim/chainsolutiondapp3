@@ -6,10 +6,13 @@ import { validateComplaint } from "@/lib/validate";
 export async function POST(req: Request) {
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown";
   if (limited(`complaint:${ip}`)) return NextResponse.json({ error: "Too many attempts. Try again later." }, { status: 429 });
+
   const parsed = validateComplaint(await req.json().catch(() => null));
   if (!parsed.ok) return NextResponse.json({ error: parsed.error }, { status: 400 });
+
+  const { body, classId } = parsed.value;
   try {
-    await getSql()`INSERT INTO complaints (body) VALUES (${parsed.value})`;
+    await getSql()`INSERT INTO complaints (body, class_id) VALUES (${body}, ${classId})`;
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("POST /api/complaints failed:", err);
